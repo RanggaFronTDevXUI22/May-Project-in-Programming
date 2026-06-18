@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Social Media</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="hero">
+        <div class="selector">
+            <p class="label">Connect with</p>
+            <div id="selectField">
+                <div class="select-inner">
+                    <span id="selectedIcon" class="selected-icon">🌐</span>
+                    <p id="selectText">Select Social Media</p>
+                </div>
+                <img src="SelectMenu_Img/arrow.png" id="arrowIcon" alt="Arrow">
+            </div>
+            <!-- FIX 1: id="list" closing quote was missing -->
+            <ul id="list" class="hide">
+                <li class="options" data-icon="📸">
+                    <img src="SelectMenu_Img/instagram.png" alt="Instagram">
+                    <p>Instagram</p>
+                </li>
+                <li class="options" data-icon="📌">
+                    <img src="SelectMenu_Img/pinterest.png" alt="Pinterest">
+                    <p>Pinterest</p>
+                </li>
+                <li class="options" data-icon="🐦">
+                    <img src="SelectMenu_Img/twitter.png" alt="Twitter">
+                    <p>Twitter</p>
+                </li>
+                <!-- FIX 2: closing > was missing on <img> tag -->
+                <li class="options" data-icon="💬">
+                    <img src="SelectMenu_Img/whatsapp.png" alt="WhatsApp">
+                    <p>WhatsApp</p>
+                </li>
+                <li class="options" data-icon="▶️">
+                    <img src="SelectMenu_Img/youtube.png" alt="YouTube">
+                    <p>YouTube</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        var selectField = document.getElementById("selectField");
+        var selectText  = document.getElementById("selectText");
+        var selectedIcon = document.getElementById("selectedIcon");
+        var list        = document.getElementById("list");
+        // FIX 3: typo "documennt" → "document"
+        var arrowIcon   = document.getElementById("arrowIcon");
+
+        selectField.onclick = function () {
+            list.classList.toggle("hide");
+            arrowIcon.classList.toggle("rotate");
+        };
+
+        // FIX 4: variable name conflict — renamed loop var to "option"
+        var optionItems = document.getElementsByClassName("options");
+        for (var option of optionItems) {
+            option.onclick = function () {
+                var icon = this.getAttribute("data-icon");
+                selectedIcon.textContent = icon;
+                selectText.innerHTML = this.querySelector("p").textContent;
+                list.classList.add("hide");
+                arrowIcon.classList.remove("rotate");
+            };
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener("click", function (e) {
+            if (!document.querySelector(".selector").contains(e.target)) {
+                list.classList.add("hide");
+                arrowIcon.classList.remove("rotate");
+            }
+        });
+    </script>
+</body>
+</html>

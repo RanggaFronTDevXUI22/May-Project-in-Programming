@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!---ppp-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide nav</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Material Symbols untuk ikon panah -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_forward" />
+    <!-- Swiper CSS dari CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+</head>
+<body>
+    <!-- .container = pembungkus utama | .swiper = menandai ini sebagai swiper container -->
+    <div class="container swiper">
+        <!-- .card-wrapper = target inisialisasi Swiper di JS -->
+        <div class="card-wrapper">
+            <!-- .swiper-wrapper wajib ada sebagai parent langsung dari slide-slide -->
+            <ul class="card-list swiper-wrapper">
+
+                <!-- Setiap .swiper-slide adalah satu slide -->
+                <li class="card-item swiper-slide">
+                    <a href="#" class="card-link">
+                        <img src="images/designer.jpg" alt="Designer" class="card-image">
+                        <p class="badge designer">Designer</p>
+                        <h2 class="card-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque reiciendis, et veniam magnam doloribus, quis officia quae laboriosam ullam ad facilis hic temporibus consequuntur nam nulla dicta? Perferendis, quo ex!</h2>
+                        <button class="card-button material-symbols-rounded">arrow_forward</button>
+                    </a>
+                </li>
+
+                <li class="card-item swiper-slide">
+                    <a href="#" class="card-link">
+                        <img src="images/developer.jpg" alt="Developer" class="card-image">
+                        <!-- ✅ PERBAIKAN: Teks badge sebelumnya "DesignerDeveloper" (typo) -->
+                        <p class="badge developer">Developer</p>
+                        <h2 class="card-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque reiciendis, et veniam magnam doloribus, quis officia quae laboriosam ullam ad facilis hic temporibus consequuntur nam nulla dicta? Perferendis, quo ex!</h2>
+                        <button class="card-button material-symbols-rounded">arrow_forward</button>
+                    </a>
+                </li>
+
+                <li class="card-item swiper-slide">
+                    <a href="#" class="card-link">
+                        <img src="images/editor.jpg" alt="Editor" class="card-image">
+                        <p class="badge editor">Editor</p>
+                        <h2 class="card-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque reiciendis, et veniam magnam doloribus, quis officia quae laboriosam ullam ad facilis hic temporibus consequuntur nam nulla dicta? Perferendis, quo ex!</h2>
+                        <button class="card-button material-symbols-rounded">arrow_forward</button>
+                    </a>
+                </li>
+
+                <li class="card-item swiper-slide">
+                    <a href="#" class="card-link">
+                        <img src="images/gamer.jpg" alt="Gamer" class="card-image">
+                        <p class="badge gamer">Gamer</p>
+                        <h2 class="card-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque reiciendis, et veniam magnam doloribus, quis officia quae laboriosam ullam ad facilis hic temporibus consequuntur nam nulla dicta? Perferendis, quo ex!</h2>
+                        <button class="card-button material-symbols-rounded">arrow_forward</button>
+                    </a>
+                </li>
+
+                <li class="card-item swiper-slide">
+                    <a href="#" class="card-link">
+                        <img src="images/marketer.jpg" alt="Marketer" class="card-image">
+                        <p class="badge marketer">Marketer</p>
+                        <h2 class="card-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque reiciendis, et veniam magnam doloribus, quis officia quae laboriosam ullam ad facilis hic temporibus consequuntur nam nulla dicta? Perferendis, quo ex!</h2>
+                        <button class="card-button material-symbols-rounded">arrow_forward</button>
+                    </a>
+                </li>
+
+            </ul>
+
+            <!-- Pagination dots (titik-titik indikator) -->
+            <div class="swiper-pagination"></div>
+
+            <!-- Tombol navigasi prev & next -->
+            <div class="swiper-slide-button swiper-button-prev"></div>
+            <div class="swiper-slide-button swiper-button-next"></div>
+        </div>
+    </div>
+
+    <!-- Swiper JS dari CDN (harus sebelum amba.js) -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <!-- Script kustom kita -->
+    <script src="script.js"></script>
+</body>
+</html>

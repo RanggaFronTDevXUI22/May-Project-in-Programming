@@ -1,0 +1,165 @@
+/* Import Google Fonts: Miniver (dekoratif), Poppins (body), Share Tech (monospace) */
+@import url('https://fonts.googleapis.com/css2?family=Miniver&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Share+Tech&display=swap');
+
+/* CS Reset: hapus margin/padding default browser, gunakan border-box sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;   /* padding & border tidak menambah lebar elemen */
+    font-family: "Poppins", sans-serif;
+}
+
+/* Body: centered layout dengan gradient background */
+body {
+    display: flex;
+    align-items: center;      /* vertikal tengah */
+    justify-content: center;  /* horizontal tengah */
+    min-height: 100vh;        /* setidaknya setinggi layar */
+    background: linear-gradient(#ecefee, #ced6fb); /* gradient dari atas ke bawah */
+}
+
+/* Pembungkus utama slider */
+.card-wrapper {
+    max-width: 1100px;
+    margin: 0 60px 35px; /* atas: 0, kiri-kanan: 60px, bawah: 35px */
+    overflow: hidden;    /* sembunyikan slide yang di luar area */
+}
+
+/* Hapus bullet list default dari <ul> <li> */
+.card-list .card-item {
+    list-style: none;
+}
+
+/* Styling kartu (anchor tag sebagai card) */
+.card-list .card-item .card-link {
+    user-select: none;          /* teks tidak bisa diselect saat drag */
+    display: block;
+    background: #fff;
+    padding: 18px;
+    border-radius: 12px;
+    text-decoration: none;
+    border: 2px solid transparent; /* border transparan, akan berubah saat hover */
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.05);
+    /* ✅ PERBAIKAN: '0.2' → '0.2s' (wajib ada satuan waktu untuk transition) */
+    transition: 0.2s ease-in;
+}
+
+/* Kursor berubah saat kartu diklik (efek drag) */
+.card-list .card-item .card-link:active {
+    cursor: grabbing;
+}
+
+/* Hover: tampilkan border biru */
+.card-list .card-item .card-link:hover {
+    border-color: #5372F0;
+}
+
+/* Gambar kartu: responsif, rasio 16:9, crop tengah */
+.card-list .card-item .card-image {
+    width: 100%;
+    aspect-ratio: 16/9;   /* jaga proporsi gambar */
+    object-fit: cover;    /* gambar dipotong agar mengisi kotak */
+    border-radius: 10px;
+}
+
+/* Badge/label kategori (default warna biru) */
+.card-list .card-link .badge {
+    color: #5372F0;
+    padding: 8px 16px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin: 16px 0 18px;
+    background: #DDE4FF;
+    width: fit-content;   /* lebar menyesuaikan konten */
+    border-radius: 50px;  /* pill shape */
+}
+
+/* ✅ PERBAIKAN: Sebelumnya hanya .designer yang punya warna,
+   dan selector .designer ditulis 4x (duplikat tidak berguna).
+   Sekarang setiap badge punya warna uniknya masing-masing. */
+
+.card-list .card-link .badge.designer {
+    color: #B22485;
+    background: #f7dff5;
+}
+
+.card-list .card-link .badge.developer {
+    color: #1a6fc4;
+    background: #dceeff;
+}
+
+.card-list .card-link .badge.editor {
+    color: #d4730a;
+    background: #fdebd0;
+}
+
+.card-list .card-link .badge.gamer {
+    color: #27ae60;
+    background: #d5f5e3;
+}
+
+.card-list .card-link .badge.marketer {
+    color: #8e44ad;
+    background: #f0dff8;
+}
+
+/* Judul kartu */
+.card-list .card-link .card-title {
+    font-size: 1.19rem;
+    color: #000;
+    font-weight: 600;
+}
+
+/* Tombol panah di kartu */
+.card-list .card-link .card-button {
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;       /* lingkaran */
+    color: #5372F0;
+    margin: 30px 0 5px;
+    background: none;
+    cursor: pointer;
+    border: 2px solid #5372F0;
+    transform: rotate(-45deg); /* rotasi agar panah mengarah ke kanan-atas */
+    /* ✅ PERBAIKAN: '0.4' → '0.4s' (wajib ada satuan waktu) */
+    transition: 0.4s ease;
+}
+
+/* Hover pada card → tombol berubah jadi solid biru */
+.card-list .card-link:hover .card-button {
+    color: #fff;
+    background: #5372F0;
+}
+
+/* Styling pagination dots Swiper */
+.card-wrapper .swiper-pagination-bullet {
+    height: 13px;
+    width: 13px;
+    /* ✅ PERBAIKAN: 'opacity: 0.5s' → 'opacity: 0.5'
+       Opacity tidak pakai satuan! Nilainya 0 (transparan) sampai 1 (penuh) */
+    opacity: 0.5;
+    background: #5372F0;
+}
+
+/* Dot aktif: penuh terlihat */
+.card-wrapper .swiper-pagination-bullet-active {
+    opacity: 1;
+}
+
+/* Tombol navigasi Swiper (panah prev/next) */
+.card-wrapper .swiper-slide-button {
+    color: #5372F0;
+    margin-top: -35px; /* naikan posisi tombol */
+}
+
+/* Responsive: layar kecil (≤768px) */
+@media screen and (max-width: 768px) {
+    .card-wrapper {
+        margin: 0 10px 25px; /* kurangi margin di mobile */
+    }
+
+    /* Sembunyikan tombol prev/next di mobile (gunakan swipe saja) */
+    .card-wrapper .swiper-slide-button {
+        display: none;
+    }
+}

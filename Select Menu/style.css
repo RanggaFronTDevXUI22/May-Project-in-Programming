@@ -1,0 +1,155 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.hero {
+    width: 100%;
+    min-height: 100vh;
+    background-image: linear-gradient(135deg, #3F2B96 0%, #A8C0FF 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.label {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.selector {
+    width: 100%;
+    max-width: 380px;   /* responsive: fluid up to 380px */
+    position: relative;
+}
+
+#selectField {
+    width: 100%;
+    padding: 14px 20px;
+    background: white;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+    /* FIX 5: transition was written as "transform: 0.5s" */
+    transition: box-shadow 0.2s ease;
+}
+
+#selectField:hover {
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+}
+
+.select-inner {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.selected-icon {
+    font-size: 20px;
+    line-height: 1;
+}
+
+#selectText {
+    font-size: 15px;
+    color: #333;
+    font-weight: 500;
+}
+
+#arrowIcon {
+    width: 14px;
+    /* FIX 5: was "transform: 0.5s" — must be "transition" */
+    transition: transform 0.35s ease;
+}
+
+#list {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.97);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    /* animate open/close */
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* FIX 6: was "visibility: hidden" — that keeps space reserved.
+   Using display:none collapses layout properly. */
+.hide {
+    display: none;
+}
+
+.options {
+    width: 100%;
+    padding: 14px 20px 14px 65px;
+    list-style: none;
+    cursor: pointer;
+    position: relative;
+    transition: background 0.15s ease;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.options:last-child {
+    border-bottom: none;
+}
+
+.options img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+}
+
+.options p {
+    font-size: 15px;
+    color: #222;
+    font-weight: 500;
+    line-height: 28px;
+}
+
+.options:hover {
+    background: rgba(63, 43, 150, 0.07);
+}
+
+.rotate {
+    transform: rotate(180deg);
+}
+
+/* ── Responsive tweaks ── */
+@media (max-width: 480px) {
+    .selector {
+        max-width: 100%;
+    }
+
+    #selectField {
+        padding: 13px 16px;
+    }
+
+    .options {
+        padding: 13px 16px 13px 58px;
+    }
+
+    .options img {
+        left: 16px;
+        width: 24px;
+        height: 24px;
+    }
+
+    #selectText,
+    .options p {
+        font-size: 14px;
+    }
+}
